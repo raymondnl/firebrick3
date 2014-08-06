@@ -23,7 +23,8 @@ if test -f output/target/bin/loginLee.sh ; then
 else
 	echo 'autologin not present!'
 	echo "#!/bin/sh" >> output/target/bin/loginLee.sh
-	echo "exec /bin/login -f root" >> output/target/bin/loginLee.sh
+#	echo "exec /bin/login -f root" >> output/target/bin/loginLee.sh
+	echo "/bin/sh" >> output/target/bin/loginLee.sh
 fi
 
 chmod +x output/target/bin/loginLee.sh
@@ -34,7 +35,8 @@ chmod +x output/target/bin/loginLee.sh
 #Compile extra userspace apps
 echo "---- Compiling LCD"
 rm output/target/usr/bin/lcd
-output/host/usr/bin/x86_64-buildroot-linux-uclibc-gcc -I output/staging/usr/include/ -L output/staging/usr/lib -L output/staging/lib -o output/target/usr/bin/lcd ../extraFiles/lcd/lcd.c
+output/host/usr/bin/x86_64-buildroot-linux-uclibc-gcc -I output/staging/usr/include/ -L output/staging/usr/lib -L output/staging/lib -o output/target/usr/bin/lcd -lusb ../extraFiles/lcd/lcd.c 
+#output/host/usr/bin/i686-buildroot-linux-uclibc-gcc -I output/staging/usr/include/ -L output/staging/usr/lib -L output/staging/lib -o output/target/usr/bin/lcd ../extraFiles/lcd/lcd.c
 
 #Add this dir to filesystem
 if ! test -d output/target/firestor ; then mkdir output/target/firestor ; fi
@@ -44,27 +46,39 @@ fi
 
 
 #Copy init scripts
-cp -f ../extraFiles/init.d/* output/target/etc/init.d/
+cp -f ../extraFiles/files/etc/init.d/* output/target/etc/init.d/
 chmod +x output/target/etc/init.d/*
+
+#Copy gnupg files
+if ! test -d output/target/.gnupg ; then mkdir output/target/.gnupg ; fi
+cp -fr ../extraFiles/files/.gnupg/* output/target/.gnupg
+chmod 700 output/target/.gnupg
 
 #Copy www files
 if ! test -d output/target/var/www ; then mkdir output/target/var/www ; fi
-cp -fr ../extraFiles/frontend/* output/target/var/www
+if ! test -d output/target/var/admin ; then mkdir output/target/var/admin ; fi
+cp -fr ../extraFiles/files/var/admin/* output/target/var/admin
 chmod +x output/target/var/www/cgi-bin/*
 
-cp -f ../extraFiles/scripts/* output/target/scripts/
+#if ! test -d output/target/fblocate ; then mkdir output/target/fblocale ; fi
+#cp -fr ../extraFiles/files/fblocale/* output/target/fblocale
+
+cp -f ../extraFiles/files/scripts/* output/target/scripts/
+ln -s ../var/admin/cgi-bin/functions.sh output/target/scripts/functions.sh
 cp -f ../extraFiles/.profile output/target/root/.profile
 
 #DHCP config
-cp -f ../extraFiles/interfaces output/target/etc/network
-cp -f ../extraFiles/udhcpd.conf output/target/etc
-cp -f ../extraFiles/httpd.conf output/target/etc
+cp -f ../extraFiles/files/etc/interfaces output/target/etc/network
+cp -f ../extraFiles/files/etc/udhcpd.conf output/target/etc
+cp -f ../extraFiles/files/etc/httpd.conf output/target/etc
 
 #rm -rf output/target/var/lib/dhcp
 #mkdir -p output/target/var/lib/dhcp
 #if ! test -f output/target/var/lib/dhcp/dhcpd.leases; then  touch output/target/var/lib/dhcp/dhcpd.leases; fi
 #if ! test -f output/target/etc/dhcpd.conf; then  touch output/target/etc/dhcpd.conf; fi
 
+#Linking init
+ln -s ../../scripts/init.sh output/target/etc/init.d/S99init
 
 #delete pci info file junk
 if test -f output/target/usr/share/pci.ids; then rm -f output/target/usr/share/pci.ids ; fi

@@ -11,5 +11,4 @@ else
 fi
 
 cd buildroot
-make
-#make V=s 2>&1 | tee build.log | grep -i error
+make V=s 2>&1 | tee build.log | grep -i error
