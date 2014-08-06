@@ -20,7 +20,7 @@ To build a FIREBrick you need:
 ASRock E350M1 Motherboard >= 1Gb DDR3 Desktop RAM (1333 or 1066)
 
 This version of the FIREBrick supports the loading of additional functionality, through modules.
-Modules are filesystem images and definition files whiich are digitally signed. So that they can be verified uppon loading.
+Modules are filesystem images and definition files which are digitally signed. So that they can be verified uppon loading.
 
 This build needs a little more work, currently has basic working functionality.
 
