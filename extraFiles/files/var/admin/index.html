@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+	<link type="text/css" rel="stylesheet" href="css/firebrick.css">
+	<link type="text/css" rel="stylesheet" href="css/menu.css">
+	<link type="text/css" rel="stylesheet" href="css/top.css">
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/spin.min.js"></script>
+	<script type="text/javascript" src="js/firebrick.js"></script>
+ 	<title>FIREBrick</title>
+</head>
+
+<body>
+	<div id="top" class="top">
+		<div id="logo" class="logo">&nbsp;</div>
+        <div id="lang" class="lang">
+  	      <!--<select id="langSwitch" class="langSwitch">
+  			<option id="0" value="0">Not FOUND!</option>
+  		  </select>-->
+  	    </div>
+  	</div>
+  	<div id="main" class="main">
+  	    <div id="menu" class="menuContainer">&nbsp;</div>
+  	    <div id="content" class="content">
+		   <iframe id="mainframe" class="mainframe" name="mainframe">&nbsp;</iframe>
+  	    </div>
+  	    <div id="content_mask">
+  	    	<div id="newcase">
+				<table id="newcasequestion" class="newcasequestionTable">
+				<tr class="questionPageTitle">
+					<td colspan="3"><h2 class="questiontitle" id="createcase">Initial Case Information</h2></td>
+				</tr>
+					<tr class="questiontr_style2">
+					<td class="question">Case ID</td>
+					<td class="qinput"><input class="inp" id="caseid" type="text" maxlength="10" /></td>
+					<td class="qcheck" id="caseid_check">&nbsp;</td>
+				</tr>
+				<tr class="questiontr_style1">
+					<td  class="question">Case description</td>
+					<td class="qinput"><input class="inp" id="casedesc" type="text" maxlength="100" /></td>
+				<td class="qcheck" id="casedesc_check">&nbsp;</td>
+				</tr><tr class="questiontr_style2">
+					<td  class="question">Name investigator</td>
+					<td class="qinput"><input class="inp" id="caseinvestigator" type="text" maxlength="25" /></td>
+					<td class="qcheck" id="caseinvestigator_check">&nbsp;</td>
+				</tr>
+			    <tr class="questiontr_btns">
+		    		<td colspan="2"><br>
+		    		<div class="divBtn">
+		    			<input type="button" value="Cancel" onclick="closeNewCase();"/>
+		    			<input type="button" value="Next" onclick="createCase();"/>
+		    		</div>
+		    		</td>
+		    	</tr>			
+				</table><br><br>
+        	</div>
+        	<div id="casemodule">
+				<table border="0" id="casemodulequestion" class="casemodulequestionTable">
+				<tr class="questiontr_style1">
+					<td class="attmodcase"><h3 class="casemoduleselect">Working with case:</h3></td>
+					<td>
+					   <select class="availcases" id="availcases">
+					      <option id="SELECT">--Select case--</option>
+					   </select>
+					</td>
+					<td class="attmodinfotr" rowspan="2"><div class="moduleInfo" id="attmodinfodiv">&nbsp;</div></td>
+				</tr>
+				<tr class="questiontr_style2">
+					<td class="attmodtitle"><h3 class="casemoduletitle">Linked modules:</h3></td>
+					<td>
+						<select id="attmodules" class="attmodules" size="5">
+						<option>--No modules linked--</option>
+						</select>
+						<br>
+						<!--<input type="button" width="175px" value="Unlink Module" onclick="deleteModule();"/>-->
+					</td>
+				</tr>
+				<tr class="questiontr_style1">
+					<td class="newmodtitle"><h3 class="questiontitle">Available modules:</h3></td>
+					<td>
+					    <select id="modlocation" class="modlocation">
+						   <option id="selloc" selected>--Select module location--</option>
+						   <option id="INTERNAL">INTERNAL</option>
+						   <option id="USB">USB</option>
+						</select>
+					</td>
+					<td rowspan="2" class="availmodinfotr"><div class="moduleInfo" id="availmodinfodiv">&nbsp;</div></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td class="availmodtr">
+						<select id="availmodules" class="availmodules" size="5">
+						<option size="5">--No modules available--</option>
+						</select>
+						<br>
+						<input id="addmodule" type="button" value="Link module" onclick="linkModule();"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="availmodbtns"><br><br><input type="button" value="Done/Close" onclick="closeNewCaseModule();"/></td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>				
+				</table>
+        	</div>
+        	<div id="opencase">
+				<table border="0" id="opencasequestion" class="opencasequestionTable">
+				<tr class="questiontr_style1">
+					<td class="opencaseselect"><h4 class="opencaseselect">Case:</h4></td>
+					<td>
+					   <select class="availcases2" id="availcases2">
+					      <option id="SELECT">--Select case--</option>
+					   </select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><br><br>
+						<input type="button" value="Cancel" onclick="hideOpenCase();"/>
+						<input type="button" value="Open case" onclick="openCase();"/>
+					</td>
+				</tr>
+				</table>
+        	</div>
+        	<div id="shutdown">
+        		<h3 class="opencaseselect">Do you want to shutdown the FIREBrick?</h3>
+				<table border="0" id="shudownquestion" class="shutdownquestionTable">
+				<tr class="questiontr_style1">
+					<td class="shutdownselect">Type YES in the textbox and klik on the OK button!</td>
+				</tr>
+				<tr>
+					<td><p><input type="text" size="3" id="shutdownanswer"/></p></td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" value="Cancel" onclick="hideShutdown();"/>
+						<input type="button" value="OK" onclick="shutdown();"/>
+					</td>
+				</tr>
+				</table>
+        	</div>
+        	<div id="shutdownopen">
+        		<h3 class="shutdownopenselect">Do you want to shutdown the FIREBrick and reopen the case on startup?</h3>
+ 				<table border="0" id="shutdownopenquestion" class="shutdownopenquestionTable">
+				<tr class="questionopentr_style1">
+					<td class="shutdownopenselect">Type YES in the textbox and klik on the OK button!</td>
+				</tr>
+				<tr>
+					<td><p><input type="text" size="3" id="shutdownopenanswer"/></p></td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" value="Cancel" onclick="hideShutdownopen();"/>
+						<input type="button" value="OK" onclick="shutdownopen();"/>
+					</td>
+				</tr>
+				</table>  		
+        	</div>	
+       		<div id="datetime">
+        		<h3 class="datetimeopenselect">Current Date and Time of the FIREBrick</h3>
+ 				<table border="0" id="datetimequestion" class="datetimequestionTable">
+				<tr class="datetimetr_style2">
+					<table border="0" id="datetimequestionsub" class="datetimequestionTable">
+						<tr class="datetimetr_style1">
+							<td>FIREBrick Date/Time: </td>
+							<td class="fbcurrentdt" id="fbcurrentdt">&nbsp;</td>
+						</tr>
+						<tr class="datetimetr_style2">
+							<td>Local Date/Time: </td>
+							<td class="localcurrentdt" id="localcurrentdt">&nbsp;</td>
+						</tr>
+					</table>
+				</tr>
+				<tr>
+					<td><p>To set the FIREBrick time to the client time, type YES in the textbox below and press the [Set FIREBrick time to (updated) localtime] button. 
+						   </p><p><font color="red">Make sure the localtime on your client machine is correct!!!</font>
+						   <input type="text" size="3" id="setdtanswer" /></p>
+						<p>
+						<input type="button" value="Cancel" onclick="hideDateTime();"/>
+						<input type="button" value="Set FIREBrick time to (updated) localtime" onclick="setFbDateTime();"/>
+						</p>
+					</td>
+				</tr>
+				</table>  		
+        	</div>	
+        	<div id="initstorage">
+				<h2>FIREBrick storage</h2>
+				<table border="0" id="storagequestion" class="storagequestionTable">
+				<tr>
+					<td colspan="3" id="storagestatus">&nbsp;</td>
+				</tr>
+				<tr valign="top">
+					<td width="200">Disks to be used: </td>
+					<td width="130"><select class="availdisks" id="availdisks" size="2">
+					       <option id="SELECT">--No disks found--</option>
+					    </select>
+					</td>
+					<td><div id="diskinfo">&nbsp;</div></td>
+				</tr>
+				<tr valign="top">
+					<td>Proposed RAID configuration: </td>
+					<td><select class="availraid" id="availraid" size="2">
+					       <option id="SELECT">--No RAID config--</option>
+					    </select></td>
+					<td><div id="raidinfo">&nbsp;</div></td>
+				</tr>
+				<tr>
+					<td colspan="3" id="spaceindicator">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="3"><p>If you want to initialise the storage write YES in the textbox and click the button [Initialise Storage]. 
+						<font color="red">Warning current content on the HDD's will be erased!!!</font><input class="answerfsinit" id="answerfsinit" type="text" size="3" length="3" width="3"></input></p></td>
+				</tr>
+				<tr>
+					<td colspan="3"><p>
+						<input type="button" id="btn_initstor" value="Cancel" onclick="hideInitStorage();" />
+					    <input type="button" value="Initialise Storage" onclick="initStorage();" /></p>
+					</td>				
+				</tr>
+				</table>
+			</div>
+       	</div>
+        <div id="message_mask">
+	    	<div id="message">
+	    	</div>
+        </div>
+  	</div>
+  <SCRIPT type="text/javascript">
+    var bigSpinner = {
+    lines: 13, // The number of lines to draw
+    length: 37, // The length of each line
+    width: 10, // The line thickness
+    radius: 49, // The radius of the inner circle
+    corners: 0.7, // Corner roundness (0..1)
+    rotate: 21, // The rotation offset
+    direction: 1, // 1: clockwise, -1: counterclockwise
+    color: '#000', // #rgb or #rrggbb or array of colors
+    speed: 1, // Rounds per second
+    trail: 33, // Afterglow percentage
+    shadow: false, // Whether to render a shadow
+    hwaccel: true, // Whether to use hardware acceleration
+    className: 'spinner', // The CSS class to assign to the spinner
+    zIndex: 2e9, // The z-index (defaults to 2000000000)
+    top: '50%', // Top position relative to parent
+    left: '50%' // Left position relative to parent
+    };
+   
+    var target = document.getElementById('message');
+    
+    var linkedModulejsonData = new Object();
+    var modulejsonData = new Object();
+    var caseid = new String();
+    var newCaseId = new String();
+    newCaseId = "";
+    
+    var localdt = new Date();
+    var fbcurrentdate = new Date();
+    
+    $(document).find('#Slidemenu ul').hide();
+	$(document).on("click", "#menu h2", function(){ $(this).next().slideToggle(); });
+	$( window ).resize(function(){ resizeContent(); });
+	window.addEventListener("load", pageFullyLoaded, false);
+	$(document).on("change", "#modlocation", showModulesInLocation);
+    $(document).on("change", "#availmodules", showSelectedModuleInformation);
+    $(document).on("change", "#availcases", changeCaseSelection);  
+    $("#caseid").blur(checkCaseExists);
+
+	$("#caseid").keyup(function(){
+		var value = this.value;
+		var maxlenght = $(this).attr('maxLength');
+		var lenght = value.length;
+	    $("#caseid_check").html('<font size="0.5pt">' + lenght + "/" + maxlenght + '</font>');
+	});
+
+	$("#casedesc").keyup(function(){
+		var value = this.value;
+		var maxlenght = $(this).attr('maxLength');
+		var lenght = value.length;
+		$("#casedesc_check").html('<font size="0.5pt">' + lenght + "/" + maxlenght + '</font>');
+	});
+
+	$("#caseinvestigator").keyup(function(){
+		var value = this.value;
+		var maxlenght = $(this).attr('maxLength');
+		var lenght = value.length;
+		$("#caseinvestigator_check").html('<font size="0.5pt">' + lenght + "/" + maxlenght + '</font>');
+	});
+
+   	$("#casedesc").blur(function(){
+    	this.value = sanitizeString(this.value);
+		var value = this.value;
+		if ( value != "" ){
+		   $("#casedesc_check").html("<img src='/images/ok.png' class='checkImage'></img>");
+		}
+		else {
+    	   $("#casedesc_check").html("<img src='/images/nok.png' class='checkImage'></img>");
+    	   $("#casedesc_check").html('<font size="0.5pt">' + lenght + "/" + maxlenght + '</font>');
+		}
+	});
+
+    $("#caseinvestigator").blur(function(){
+    	this.value = sanitizeString(this.value);
+		var value = this.value;
+		if ( value != "" ){
+			$("#caseinvestigator_check").html("<img src='/images/ok.png' class='checkImage'></img>");
+		}
+		else {
+		   $("#caseinvestigator_check").html("<img src='/images/nok.png' class='checkImage'></img>");
+    	   $("#caseinvestigator_check").html('<font size="0.5pt">' + lenght + "/" + maxlenght + '</font>');
+    	}
+	});
+
+    getStorageInfo("1");
+    getDateTime("1");
+    checkReopenState();
+    isCaseOpen();   
+  </script>
+</body>
+</html>

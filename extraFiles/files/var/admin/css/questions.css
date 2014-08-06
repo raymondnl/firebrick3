@@ -1,0 +1,87 @@
+.questionForm, .questionForm * {
+	
+}
+
+.questionTable {
+	width: 700px;
+}
+
+.questionPageTitle {
+	
+}
+
+.questiontitle {
+	
+}
+
+.questiontr_style2 {
+	background-color:#FFF8B0;
+}
+
+.questiontr_style2 input {
+	background: transparent;
+	border-style:groove;
+}
+
+.questiontr_style1 {
+	background-color:#FFFFFF;
+}
+
+.questiontr_style1 input {
+	background: transparent;
+	border-style:groove;
+}
+.question {
+	width: 200px;	
+}
+
+.qinput {
+	width: 400px;
+}
+
+.qcheck {
+	background-color: #FFFFFF;
+	width: 100px;
+	
+}
+
+.questiontr_btns{
+
+}
+
+.h4_btn {
+	border: 1px solid #B6B6B6;
+	background-color: #DBDBDB;
+	width: 75px;
+	height: 25px;
+	text-align: center;
+	vertical-align:middle;
+	padding-top: 5px;
+	color: #000000;
+	float: right;
+	margin: 2px;
+	border-radius:5px;
+}
+
+.divBtn{
+    width: 100%;
+	text-align: right;
+	float: right;
+}
+.inp {
+	width: auto;
+}
+
+.inp_casedesc{
+}
+
+.container div * {
+	
+	position:relative;
+	left: 0px;
+	top: 0px;
+}
+
+#qpage2 {
+	display: none;
+}

@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'alienleague';
+    src: url('alienleague.ttf') format(truetype);
+}
+
+@font-face {
+    font-family: 'rail';
+    src: url('Raleway-Regular.otf');
+}
+
+#top * {
+    font-family: 'rail';
+}
+
+#top { display:inline-block;	
+	   background-color: #ffffff;
+	   height: 80px;
+	   width:inherit;
+	   float: left;
+	   margin-top: 5px;
+	   margin-bottom: 4px;
+	 }
+
+#top .logo { background-image: url("../images/back.png");
+			 background-repeat: no-repeat;
+			 display: inline-block;
+			 vertical-align: middle; 
+			 text-align: center;
+			 width: 180px;
+			 height: inherit;
+			 margin-right: auto;
+			 margin-left: 20px;
+			 float: left;
+		   }
+
+#top .lang { float: right; 
+             display: inline-block;
+		     background-repeat: no-repeat; 
+		     width: auto;
+		     height: auto;
+ 		   }
+
+#top .lang .langSwitch, #top .lang .langSwitch * {
+	font-family: 'rail';
+	font-size: 0.9em;
+	background-repeat: no-repeat;
+    background: transparent;
+	height: 23px;
+	background-position: right;
+	vertical-align: middle;
+	outline: none;
+	border: #FFFFFF;
+}

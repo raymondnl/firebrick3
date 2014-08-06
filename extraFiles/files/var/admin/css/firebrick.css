@@ -1,0 +1,220 @@
+@font-face {
+    font-family: 'alienleague';
+    src: url('alienleague.ttf') format(truetype);
+}
+
+@font-face {
+    font-family: 'rail';
+    src: url('Raleway-Regular.otf');
+}
+
+html {
+    overflow:hidden;
+    height: 100%;
+    margin: 2px auto;
+    padding: 0;
+    font-family: 'rail';
+}
+
+body{
+	overflow: none;
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background-color: #FFFFFF;
+	}
+
+body .main { display:inline-block;	
+	         background-color: #FFFFFF;
+	         height: 100%;
+	         width: 100%;
+	         float: left;
+	         margin-top: 0px;
+	       }
+
+body .main .menuContainer { display: inline-block; 
+			       background-color: #FFFFFF;
+			       text-align: left;
+			       width: 213px;
+			       margin-right: 0px;
+			       margin-top: 0px;
+			       margin-left: 0px;
+			       height: 100%;
+			       overflow: auto;
+		          }
+
+body .main .content { background-color: pink; 
+	                  display: inline-block;
+			          background-repeat: no-repeat;
+			          vertical-align: top;
+			          text-align: left;
+			          height: 100%;
+			          margin-left: auto;
+			          margin-right: 0px;
+			          margin-top: 0px;
+			          overflow: none;
+   		            }
+
+body .main .content .mainframe{ background-color: #FFFFFF; 
+								width: 100%;
+								height: 100%;
+								border: 0px;
+   		            		  }
+
+
+h1,h2,h3 {font-family:rail;}
+
+hr{
+ border-color: #eaeaea;
+}
+
+h3{padding-top:15px;}
+
+section.grid-highlight{border-bottom:1px #ebebeb dashed  ; border-width:5px;}
+
+#content_mask {
+   position: absolute;
+   top: 0; right: 0; bottom: 0; left: 0;
+   margin: auto; margin-top: 0px; margin-right: 0px; z-index: 0;
+   width: 100%; height: 100%; min-width: 100%; min-height: 100%;
+   background: rgb(54, 25, 25); background: rgba(54, 25, 25, .5);
+   visibility: hidden;
+}
+
+#newcase {
+   position: absolute;
+   left: 50%; top: 50%; margin-left: -200px; margin-top: -200px; z-index: 1; 
+   padding-top; 50px; padding : 30px; width: 400px; height: 250px;
+   background-color: #FFF003; border: 1px solid black;
+   visibility: hidden;          
+}
+
+#initstorage {
+   position: absolute;
+   left: 50%; top: 50%; margin-left: -290px; margin-top: -300px; z-index: 1; 
+   padding-top; 50px; padding : 30px; width: 550px; height: 500px;
+   background-color: #FFF003; border: 1px solid black;
+   visibility: hidden;  	
+}
+
+#casemodule {
+   position: absolute;
+   left: 50%; top: 50%; margin-left: -350px; margin-top: -300px; z-index: 1; 
+   padding-top; 50px; padding : 30px; width: 700px; height: 450px;
+   background-color: #FFF003; border: 1px solid black;
+   visibility: hidden;          
+}
+
+#opencase {
+   position: absolute;
+   left: 50%; top: 50%; margin-left: -170px; margin-top: -150px; z-index: 1; 
+   padding-top; 50px; padding : 30px; width: 250px; height: 150px;
+   background-color: #FFF003; border: 1px solid black;
+   visibility: hidden;          
+}
+
+
+#shutdown {
+   position: absolute;
+   left: 50%; top: 50%; margin-left: -200px; margin-top: -170px; z-index: 1; 
+   padding-top; 50px; padding : 30px; width: 400px; height: 200px;
+   background-color: #FFF003; border: 1px solid black;
+   visibility: hidden;          
+}
+
+#datetime {
+   position: absolute;
+   left: 50%; top: 50%; margin-left: -300px; margin-top: -200px; z-index: 1; 
+   padding-top; 50px; padding : 30px; width: 550px; height: 300px;
+   background-color: #FFF003; border: 1px solid black;
+   visibility: hidden;          
+}
+
+#restart {
+   position: absolute;
+   left: 50%; top: 50%; margin-left: -200px; margin-top: -170px; z-index: 1; 
+   padding-top; 50px; padding : 30px; width: 400px; height: 200px;
+   background-color: #FFF003; border: 1px solid black;
+   visibility: hidden;          
+}
+
+#shutdownopen {
+   position: absolute;
+   left: 50%; top: 50%; margin-left: -200px; margin-top: -170px; z-index: 1; 
+   padding-top; 50px; padding : 30px; width: 400px; height: 200px;
+   background-color: #FFF003; border: 1px solid black;
+   visibility: hidden;          
+}
+
+#restartopen {
+   position: absolute;
+   left: 50%; top: 50%; margin-left: -200px; margin-top: -170px; z-index: 1; 
+   padding-top; 50px; padding : 30px; width: 400px; height: 200px;
+   background-color: #FFF003; border: 1px solid black;
+   visibility: hidden;          
+}
+
+#message {
+   position: absolute;
+   left: 50%; top: 50%; margin-left: -250px; margin-top: -200px; z-index: 1; 
+   padding-top; 50px; padding : 30px; width: 500px; height: 300px;
+   background-color: #EB8B2D; border: 1px solid black;
+   visibility: hidden;          
+}
+
+#message_mask {
+   position: absolute;
+   top: 0; right: 0; bottom: 0; left: 0;
+   margin: auto; margin-top: 0px; margin-right: 0px; z-index: 0;
+   width: 100%; height: 100%; min-width: 100%; min-height: 100%;
+   background: rgb(54, 25, 25); background: rgba(54, 25, 25, .5);
+   visibility: hidden;
+}
+
+.checkImage {
+	 width: 15px;
+	 height:15px;
+}
+
+#modinfo * {
+	font-size: 0.8em;
+	background-color: #FFFFFF;
+	overflow: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 275px;
+}
+
+#availmodinfodiv * {
+	font-size: 1em;
+}
+
+.availmodules {
+	width: 175px;
+}
+
+.availcases {
+	width: 175px;
+}
+
+.attmodules {
+	width: 175px;
+}
+.casemodulequestionTable {
+	border: 0;
+	vertical-align: text-top;
+}
+
+.casemodulequestionTable tr td {
+	vertical-align: text-top;
+} 
+
+.availdisks {
+   width: 130px;
+}
+
+.availraid {
+   width: 130px;
+}

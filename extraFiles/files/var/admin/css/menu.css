@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'alienleague';
+    src: url('alienleague.ttf') format(truetype);
+}
+
+@font-face {
+    font-family: 'rail';
+    src: url('Raleway-Regular.otf');
+}
+
+#menu * {
+	margin: 0;
+	padding: 0;
+}
+
+#menu {
+	font-size: 0.8em;
+	background-color: #FFFFFF;
+	overflow: none;
+}
+
+#menu img {
+	border: 0;
+}
+
+#menu ul {
+	list-style-type: none;
+}
+
+#menu .node {
+	width: 199px;
+}
+
+#menu .node h2 {
+	position: relative;
+	padding: 0 5px;
+	height: 26px;
+	color: #D9232A; /*Rood*/
+	/*#FFF003; /*Geel*/
+	/*#EB8B2D; /*Oranje*/
+	/* background: #ededed url(../images/menu/bar.gif) top left repeat-x; */
+	background: -webkit-linear-gradient(left top, gray , white); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, gray, white); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, gray, white); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, gray , white); /* Standard syntax */
+	border-bottom: 1px solid #fff;
+	line-height: 26px;
+	font-size: 1em;
+}
+
+#menu .node h2 img {
+	position: absolute;
+	top: 9px;
+	right: 8px;
+}
+
+#menu .node ul li {
+	padding: 0 10px;
+	height: 26px;
+	line-height: 26px;
+	border-bottom: 1px solid #fff;
+}
+
+#menu .node ul li a {
+	padding-left: 12px;
+	/*background: url(../images/menu/menu_li1.gif) 0 0.35em no-repeat;*/
+}
+
+#menu .node ul li a:link, #menu .node ul li a:active, #menu .node ul li a:visited {
+	color: #6e7475;
+	text-decoration: none;
+}
+
+#menu .node a.disabled {
+	padding-left: 12px;
+	/*background: url(../images/menu/menu_li1.gif) 0 0.35em no-repeat;*/
+    	pointer-events: none;
+
+}
+
+#menu .node ul li a:hover {
+	/*background: url(../images/menu/menu_li2.gif) 0 0.35em no-repeat;*/
+	color: #000;
+}
+
+#menu .node ul li.menuli_style1 {
+	background-color: #ededed;
+}
+
+#menu .node ul li.menuli_style2 {
+	background-color: #e9e9e9;
+}
+
+#menu .node ul li.menuli_spacer {
+	background-color: #ffffff;
+	height: 10px;
+}
+
+#menu .menublock{
+	vertical-align: middle;
+	border: 0px;
+}

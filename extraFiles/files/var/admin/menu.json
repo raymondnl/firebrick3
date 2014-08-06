@@ -1,0 +1,26 @@
+{"menu":[
+   {
+      "menuitem": "menu_main_system", 
+      "menugroup": "system", 
+      "menutext": "System",
+      "submenu":[{"submenuitem":"menu_sub_datetime", "submenutext":"Date/Time Information", "url":"javascript:showdateTime();"},
+      	         {"submenuitem":"menu_sub_firestorinfo", "submenutext":"Storage Information", "url":"cgi-bin/diskSpace.cgi"},
+      	         {"submenuitem":"menu_sub_firestorinit", "submenutext":"Initialise Storage", "url":"javascript:showInitStorage();"},
+      	         {"submenuitem":"menu_sub_shutdown", "submenutext":"Shutdown", "url":"javascript:showShutdown();"}
+      ]},
+   {
+    	"menuitem": "menu_main_casemgmt",
+    	"menugroup": "casemgmt",
+    	"menutext": "Case Management",
+		"submenu":[{"submenuitem":"menu_sub_newcase", "submenutext":"New Case", "url":"javascript:showNewCase();"},
+				   {"submenuitem":"menu_sub_editcase", "submenutext":"Edit Case", "url":"javascript:showNewCaseModule();"},
+				   {"submenuitem":"menu_sub_caseopen", "submenutext":"Open Case","url":"javascript:showOpenCase();"}
+		]},
+	{
+    	"menuitem": "menu_main_about",
+    	"menugroup": "about",
+    	"menutext": "About FIREBrick",
+		"submenu":[{"submenuitem":"menu_sub_about", "submenutext":"About", "url":"/about.html"},
+		           {"submenuitem":"menu_sub_ack", "submenutext":"Acknoledgements", "url":"/ack.html"}
+        ]}
+]}
