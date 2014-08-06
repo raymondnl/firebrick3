@@ -15,8 +15,7 @@ Software for the open source hardware write-blocker/imager.
 
 To build a FIREBrick you need:
 
-ASRock E350M1 Motherboard
->= 1Gb DDR3 Desktop RAM (1333 or 1066)
+ASRock E350M1 Motherboard >= 1Gb DDR3 Desktop RAM (1333 or 1066)
 
 This version of the FIREBrick runs a webserver, providing a web frontend. The user connects to the FIREBrick via an ethernet cable, the system provides an IP address via DHCP (192.168.0.x). Frontend accessible via a web browser (192.168.0.1).
 
