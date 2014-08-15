@@ -47,8 +47,8 @@ else
   runningvirtual=0;
   FBMODULELOCATION="/firestor/.firebrick/modules"
   USBMODMODULELOCATION="/mnt/modules"
-  URLENCODE="/home/raymond/Dropbox/FIREBrick/cgi-bin/urlencode.sed";
-  URLDECODE="/home/raymond/Dropbox/FIREBrick/cgi-bin/urldecode.sed";
+  URLENCODE="/var/admin/cgi-bin/urlencode.sed";
+  URLDECODE="/var/admin/cgi-bin/urldecode.sed";
 fi
 
 # Dit moet variable gemaakt worden middels init script gebasseerd op een settings bestand
