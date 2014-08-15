@@ -1069,7 +1069,7 @@ createCaseMenuJSON() {
    casefile=$FIRESTOR"/"$caseNumber"/conf/case.conf"
 
    if [ -f $caseFile ]; then
-      fbIP=$(getIP "wlan[0-2]");
+      fbIP=$(getIP "eth[0-2]");
       sectionbegin="Section:Case-Modules-Begin";
       sectionend="Section:Case-Modules-END";
       caseID=$(getConfigItem "CaseID" $casefile);

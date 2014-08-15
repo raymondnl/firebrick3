@@ -175,6 +175,7 @@ case "$1" in
       fi
    fi
 
+   fbIP=$(getIP "eth[0-2]");
    sleep 5
 
    lcd c
@@ -183,7 +184,7 @@ case "$1" in
    lcd g 0 2
    lcd p "Browse to:"
    lcd g 0 3
-   lcd p "http://192.168.253.1"
+   lcd p $fbIP
    ;;
 stop)
    echo -n "Not doing anything"
