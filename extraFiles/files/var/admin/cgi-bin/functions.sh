@@ -127,7 +127,7 @@ createDefaultConfigFile(){
 	echo "URLDECODE=/var/admin/cgi-bin/urldecode.sed" >> $SYSTEMCONFIGFILE;
 	echo "" >> $SYSTEMCONFIGFILE;
 	echo "#Mod-Disk variables" >> $SYSTEMCONFIGFILE;
-	echo "USBMODSLEEPSTEP=1s" >> $SYSTEMCONFIGFILE;
+	echo "USBMODSLEEPSTEP=1" >> $SYSTEMCONFIGFILE;
 	echo "USBMODMAXWAIT=10" >> $SYSTEMCONFIGFILE;
 	echo "USBMODSYSDIRECTORY=/sys/block" >> $SYSTEMCONFIGFILE;
 	echo "USBMODFINDDEV=sd[a-d]" >> $SYSTEMCONFIGFILE;
