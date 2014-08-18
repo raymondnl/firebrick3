@@ -10,6 +10,7 @@ __ () {
   # Depends on	     : The variables LANGUAGE (eg. nl_NL), TEXTDOMAIN (eg. scriptname.sh), TEXTDOMAINDIR (eg. /firebrick/locale)
   # Usage	     : echo "$(__ "TEXT")", or echo "$(__ "TEXT %s" "variable")"
   # Modification date: 
+  # Origin           : http://docs.unity-inux.org/I18n_Support_and_Shell_Scripts
   
       #if [ ${#LANGUAGE} -eq 0 ] && [ ${#TEXTDOMAIN} -eq 0 ] && [ ${#TEXTDOMAINDIR} -eq 0 ]; then
       #	return_message "LOCALIZATION_ERROR";
@@ -34,6 +35,13 @@ __ () {
 }
 
 readConfigFile() {
+  # Title            : readConfigFile
+  # Function         : Reads configuration file
+  # Input            : configuration filename
+  # Output           : -
+  # Last modified by : Raymond van den Heuvel
+  # Modification date: 
+
 	configFile=$1;
 	if [ ${#logFile} -ne 0 ]; then
 		if [ -f $configFile ]; then
@@ -64,13 +72,21 @@ return_message() {
 }
 
 isMounted() {
+  # Title            : isMounted
+  # Function         : Checks if the mountpoint is mounted
+  # Input            : mountpoint
+  # Output           : -
+  # Last modified by : Raymond van den Heuvel
+  # Modification date: 
+
+
 	mountPoint=$1;
 	if [ ${#mountPoint} -ne 0 ]; then
-		if mount | grep $mountPoint > /dev/null ; then
+	    if mount | grep $mountPoint > /dev/null ; then
     		return 0;
-    	else
+    	    else
     		return 1;
-    	fi
+    	    fi
 	else
 		return_message "CHECK_INPUT";
 		exit;
@@ -107,6 +123,12 @@ logDirectoryExist() {
 }
 
 createDefaultConfigFile(){
+  # Title            : createDefaultConfigFile
+  # Function         : Creates confiruation file with default values
+  # Input            : -
+  # Output           : -
+  # Last modified by : Raymond van den Heuvel
+  # Modification date: 
 
 	echo "#System-settings" > $SYSTEMCONFIGFILE;
 	echo "devel=0" >> $SYSTEMCONFIGFILE;
@@ -196,7 +218,8 @@ minValueColumn() {
   # Output           : int
   # Last modified by : Raymond van den Heuvel
   # Modification date:
-  
+  # Origin	     : http://www.unixcl.com/2008/10/find-min-max-of-column-using-awk-bash.html
+ 
   colNum=$1;
   fileName=$2;
 
@@ -214,7 +237,8 @@ maxValueColumn() {
   # Output           : int
   # Last modified by : Raymond van den Heuvel
   # Modification date:
-  
+  # Origin	     : http://www.unixcl.com/2008/10/find-min-max-of-column-using-awk-bash.html
+ 
   colNum=$1;
   fileName=$2;
 
@@ -232,6 +256,7 @@ equalValueColumn() {
   # Output           : 
   # Last modified by : Raymond van den Heuvel
   # Modification date:
+  # Origin	     : http://www.unixcl.com/2008/10/find-min-max-of-column-using-awk-bash.html
   
   value=$1
   colNum=$2;
@@ -246,6 +271,13 @@ equalValueColumn() {
 }
 
 modifyConfig() {
+  # Title            : modifyConfig
+  # Function         : Modifies configuration file
+  # Input            : Target keyname, Value/Replacement value, Configurationfile name
+  # Output           : -
+  # Last modified by : Raymond van den Heuvel
+  # Modification date: 
+
 	TARGET_KEY=$1
 	REPLACEMENT_VALUE=$2
 	CONFIG_FILE=$3
@@ -264,6 +296,14 @@ modifyConfig() {
 }
 
 getConfigItem() {
+  # Title            : getConfigItem
+  # Function         : Gets the value of a configuration key
+  # Input            : COnfiguration key, Configurationfile
+  # Output           : The value, or error
+  # Last modified by : Raymond van den Heuvel
+  # Modification date: 
+
+
 	TARGET_KEY=$1
 	CONFIG_FILE=$2
 	
@@ -1125,6 +1165,7 @@ urlEncode() {
    # Output           : Encoded string
    # Last modified by : Raymond van den Heuvel
    # Modification date:
+   # Origin           : http://www.unix.com/shell-programming-and-scripting/59936-url-encoding.html
 
    echo $(echo $1 | sed -f $URLENCODE);
 }
@@ -1136,6 +1177,7 @@ urlDecode() {
    # Output           : Decoded string
    # Last modified by : Raymond van den Heuvel
    # Modification date:
+   # Origin           : http://www.unix.com/shell-programming-and-scripting/59936-url-encoding.html
 
    echo $(echo $1 | sed -f $URLDECODE);
 }
@@ -1252,6 +1294,13 @@ unmountCaseFolders() {
 
 
 checkCaseDirectories(){
+  # Title            : checkCaseDirectories
+  # Function         : Checks for a specifiic caseis whether the data directories are create and the rights are set
+  # Input            : CaseID
+  # Output           : Status message
+  # Last modified by : Raymond van den Heuvel
+  # Modification date: 
+
   caseID=$1
   if [ ${#caseID} -gt 0 ]; then
      caseConfig="$FIRESTOR/$caseID/conf/case.conf"
@@ -1617,6 +1666,7 @@ caseMaster(){
   # Output           : 
   # Last modified by : Raymond van den Heuvel
   # Modification date:
+
    caseCommand=$1;
    caseID=$2;
    if [ ! -d $FBSTATUSLOCATION ]; then
